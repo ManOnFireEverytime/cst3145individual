@@ -60,6 +60,23 @@ const app = new Vue({
         });
       }
 
+      //Sorting Function
+      tempLessons = tempLessons.sort((a, b) => {
+        //Sorting by subject
+        if (this.sortBy == "subject") {
+          let fa = a.Subject.toLowerCase(),
+            fb = b.Subject.toLowerCase();
+
+          if (fa < fb) {
+            return -1;
+          }
+          if (fa > fb) {
+            return 1;
+          }
+          return 0;
+        }
+      });
+
       return tempLessons;
     },
     // Number of items in Cart
