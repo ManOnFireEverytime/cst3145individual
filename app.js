@@ -9,6 +9,10 @@ const app = new Vue({
     search: "",
   },
   methods: {
+    //Change Pages
+    changePage() {
+      this.onHome = !this.onHome;
+    },
     //Add item to Cart
     addToCart(item) {
       this.cart.push(item);
