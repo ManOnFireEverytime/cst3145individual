@@ -109,6 +109,93 @@
           </div>
         </section>
       </div>
+
+      <div v-else>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+          <div class="container px-4 px-lg-5">
+            <button class="btn btn-outline-dark" v-on:click="changePage">
+              Cart
+              <span class="badge bg-dark text-white ms-1 rounded-pill"
+                >{{ cartItemCount }}</span
+              >
+            </button>
+          </div>
+        </nav>
+        <section class="py-5">
+          <div class="container px-4 px-lg-5 mt-5">
+            <div
+              class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center"
+            >
+              <div v-for="item in cart" class="col mb-5">
+                <div class="card h-100">
+                  <img v-bind:src="item.image" class="card-img-top" />
+
+                  <div class="card-body p-4">
+                    <div class="text-center">
+                      <h5 class="fw-bolder">Subject: {{ item.Subject }}</h5>
+                      <p><i v-bind:class="item.icon"></i></p>
+                      <p>Location: {{ item.Location }}</p>
+                      Price: £{{ item.Price }}
+                    </div>
+                  </div>
+                  <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                    <div class="text-center">
+                      <a
+                        class="btn btn-outline-dark mt-auto"
+                        v-on:click="removeFromCart()"
+                        >Remove From Cart</a
+                      >
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section>
+          <div class="container">
+            <div class="py-5 text-center">
+              <h2>Checkout</h2>
+            </div>
+
+            <div class="row">
+              <div class="col-md-12 order-md-1">
+                <form class="needs-validation" onkeyup="validate()">
+                  <div class="row">
+                    <div class="col-md-6 mb-3">
+                      <input
+                        name="name"
+                        type="text"
+                        id="name"
+                        class="form-control"
+                        placeholder="Name"
+                      />
+                    </div>
+                    <div class="col-md-6 mb-3">
+                      <input
+                        name="phone"
+                        type="text"
+                        id="phone"
+                        class="form-control"
+                        placeholder="Phone"
+                      />
+                    </div>
+                  </div>
+                  <button
+                    class="col-md-12 mb-5 btn btn-primary btn-lg btn-block"
+                    id="btn"
+                    type="submit"
+                    v-on:click="submitForm"
+                    disabled
+                  >
+                    Checkout
+                  </button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
     </div>
     <script src="lessons.js"></script>
     <script src="app.js"></script>
