@@ -46,6 +46,22 @@ const app = new Vue({
     },
   },
   computed: {
+    //Searching & Sorting
+    filteredLessons: function () {
+      let tempLessons = this.lessons;
+
+      //Search Function
+      if (this.search != "") {
+        tempLessons = tempLessons.filter((item) => {
+          return (
+            item.Subject.toLowerCase().match(this.search.toLowerCase()) ||
+            item.Location.toLowerCase().match(this.search.toLowerCase())
+          );
+        });
+      }
+
+      return tempLessons;
+    },
     // Number of items in Cart
     cartItemCount: function () {
       return this.cart.length || "";
