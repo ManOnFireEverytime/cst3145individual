@@ -32,9 +32,9 @@ const app = new Vue({
       return count;
     },
     //Remove item from cart
-    removeFromCart() {
+    removeFromCart(item) {
       //Remove 1 item from cart
-      this.cart.splice(this.cart.item, 1);
+      this.cart.splice(this.cart.indexOf(item), 1);
       //Switch to home page if cart becomes empty
       if (this.cart.length <= 0) {
         this.changePage();

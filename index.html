@@ -126,7 +126,7 @@
             <div
               class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center"
             >
-              <div v-for="item in cart" class="col mb-5">
+              <div v-for="(item, index) in cart" :key="index" class="col mb-5">
                 <div class="card h-100">
                   <img v-bind:src="item.image" class="card-img-top" />
 
@@ -142,7 +142,7 @@
                     <div class="text-center">
                       <a
                         class="btn btn-outline-dark mt-auto"
-                        v-on:click="removeFromCart()"
+                        v-on:click="removeFromCart(item)"
                         >Remove From Cart</a
                       >
                     </div>
