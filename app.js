@@ -79,6 +79,19 @@ const app = new Vue({
         else if (this.sortBy == "price") {
           return a.Price - b.Price;
         }
+        //Sorting by location
+        else if (this.sortBy == "location") {
+          let fa = a.Location.toLowerCase(),
+            fb = b.Location.toLowerCase();
+
+          if (fa < fb) {
+            return -1;
+          }
+          if (fa > fb) {
+            return 1;
+          }
+          return 0;
+        }
       });
 
       return tempLessons;
