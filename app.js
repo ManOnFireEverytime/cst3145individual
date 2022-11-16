@@ -75,6 +75,10 @@ const app = new Vue({
           }
           return 0;
         }
+        //Sorting by price
+        else if (this.sortBy == "price") {
+          return a.Price - b.Price;
+        }
       });
 
       return tempLessons;
