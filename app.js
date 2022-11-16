@@ -97,6 +97,10 @@ const app = new Vue({
           return a.Space - b.Space;
         }
       });
+      //Descending order
+      if (!this.ascending) {
+        tempLessons.reverse();
+      }
 
       return tempLessons;
     },
