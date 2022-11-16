@@ -2,8 +2,11 @@ const app = new Vue({
   el: "#app",
   data: {
     lessons: lessons,
-
+    onHome: true,
+    ascending: true,
+    sortBy: "subject",
     cart: [],
+    search: "",
   },
   methods: {
     //Add item to Cart
