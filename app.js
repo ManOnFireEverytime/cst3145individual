@@ -92,6 +92,10 @@ const app = new Vue({
           }
           return 0;
         }
+        //Sorting by space
+        else if (this.sortBy == "space") {
+          return a.Space - b.Space;
+        }
       });
 
       return tempLessons;
