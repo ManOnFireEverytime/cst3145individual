@@ -199,6 +199,27 @@
     </div>
     <script src="lessons.js"></script>
     <script src="app.js"></script>
+    <script>
+      function validate() {
+        var name = document.getElementById("name").value;
+        var phone = document.getElementById("phone").value;
+        var btn = document.getElementById("btn");
+        var nameRGEX = /^[A-Za-z_ ]{2,90}$/i;
+        var phoneRGEX = /^\d{9,11}$/;
+        var nameResult = nameRGEX.test(name);
+        var phoneResult = phoneRGEX.test(phone);
+        if (nameResult == false) {
+          btn.disabled = true;
+        }
+
+        if (phoneResult == false) {
+          btn.disabled = true;
+        }
+        if (nameResult == true && phoneResult == true) {
+          btn.disabled = false;
+        }
+      }
+    </script>
   </body>
 </html>
 l
