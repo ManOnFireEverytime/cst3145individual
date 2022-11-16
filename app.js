@@ -45,5 +45,10 @@ const app = new Vue({
       alert("Your order has been Submitted");
     },
   },
-  computed: {},
+  computed: {
+    // Number of items in Cart
+    cartItemCount: function () {
+      return this.cart.length || "";
+    },
+  },
 });
