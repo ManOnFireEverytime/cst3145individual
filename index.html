@@ -86,12 +86,12 @@
                       <h5 class="fw-bolder">Subject: {{ item.Subject }}</h5>
                       <p><i v-bind:class="item.icon"></i></p>
                       <p>Location: {{ item.Location }}</p>
-                      <p>Spaces: {{ item.Space - cartCount(item) }}</p>
+                      <p>Spaces: {{ item.Space }}</p>
                       Price: £{{ item.Price }}
                     </div>
                   </div>
                   <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                    <div class="text-center" v-if="canAddToCart(item)">
+                    <div class="text-center" v-if="item.Space > 0">
                       <a
                         class="btn btn-outline-dark mt-auto"
                         v-on:click="addToCart(item)"
@@ -201,27 +201,7 @@
     </div>
     <script src="lessons.js"></script>
     <script src="app.js"></script>
-    <script>
-      function validate() {
-        var name = document.getElementById("name").value;
-        var phone = document.getElementById("phone").value;
-        var btn = document.getElementById("btn");
-        var nameRGEX = /^[A-Za-z_ ]{2,90}$/i;
-        var phoneRGEX = /^\d{9,11}$/;
-        var nameResult = nameRGEX.test(name);
-        var phoneResult = phoneRGEX.test(phone);
-        if (nameResult == false) {
-          btn.disabled = true;
-        }
-
-        if (phoneResult == false) {
-          btn.disabled = true;
-        }
-        if (nameResult == true && phoneResult == true) {
-          btn.disabled = false;
-        }
-      }
-    </script>
+    <script></script>
   </body>
 </html>
 l

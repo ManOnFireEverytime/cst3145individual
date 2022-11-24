@@ -15,11 +15,12 @@ const app = new Vue({
     },
     //Add item to Cart
     addToCart(item) {
+      if (item.Space > 0) {
+        --item.Space;
+      }
+
       this.cart.push(item);
-    },
-    //Checking if the user can add item to cart
-    canAddToCart(item) {
-      return item.Space > this.cartCount(item);
+      // item.Space - this.cartCount(item);
     },
     // Item Cart count
     cartCount(item) {
@@ -35,6 +36,9 @@ const app = new Vue({
     removeFromCart(item) {
       //Remove 1 item from cart
       this.cart.splice(this.cart.indexOf(item), 1);
+      // increase number of spaces for removed cart item
+      var lessonRemoved = this.lessons.find((lesson) => lesson.id == item.id);
+      lessonRemoved.Space++;
       //Switch to home page if cart becomes empty
       if (this.cart.length <= 0) {
         this.changePage();
@@ -94,7 +98,15 @@ const app = new Vue({
         }
         //Sorting by space
         else if (this.sortBy == "space") {
-          return a.Space - b.Space;
+          let x = a.Space;
+          let y = b.Space;
+          if (x < y) {
+            return 1;
+          }
+          if (x > y) {
+            return -1;
+          }
+          return 0;
         }
       });
       //Descending order
