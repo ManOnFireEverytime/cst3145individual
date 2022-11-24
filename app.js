@@ -22,6 +22,9 @@ const app = new Vue({
       this.cart.push(item);
       // item.Space - this.cartCount(item);
     },
+    canAddToCart(item) {
+      return item.Space > 0;
+    },
     // Item Cart count
     cartCount(item) {
       let count = 0;
