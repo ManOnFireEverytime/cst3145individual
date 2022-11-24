@@ -101,15 +101,7 @@ const app = new Vue({
         }
         //Sorting by space
         else if (this.sortBy == "space") {
-          let x = a.Space;
-          let y = b.Space;
-          if (x < y) {
-            return 1;
-          }
-          if (x > y) {
-            return -1;
-          }
-          return 0;
+          a.Space - b.Space;
         }
       });
       //Descending order
