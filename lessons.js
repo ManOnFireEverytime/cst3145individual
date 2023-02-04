@@ -4,7 +4,7 @@ var lessons = [
     Subject: "Math",
     Location: "London",
     Price: 100,
-    Space: 5,
+    Space: 56,
     image: "images/math.jpg",
     icon: "fa-solid fa-calculator",
   },
